@@ -30,6 +30,34 @@
 
       </header>
       <section>
+      <h3> Test Case Specifications </h3>
+      <pre><code> 
+      	describe("Rule : ADV0200", function() {	
+		var fieldVal = "1",
+			beforeComma = 2,
+            afterComma = 0,
+            amountRange = ">0",
+			plus = "+",
+			minus = "",
+			format = "99";
+                     	
+		it("should validate the amount '"+fieldVal+"' should be >0", function(){
+		 var result = validateAmount(fieldVal,beforeComma,afterComma,amountRange,plus,minus,format);  
+		 expect(result).toBe("01");
+		});
+		var fieldVal1 = "123";
+		it("should not validate the amount '"+fieldVal1+"' because it should be in '"+format+"' format", function(){
+		 var result = validateAmount(fieldVal1,beforeComma,afterComma,amountRange,plus,minus,format);  
+		 expect(result).toBe("should be in '"+format+"' format");
+		});
+		var fieldVal2 = "-1";
+		it("should not validate the amount '"+ fieldVal2+"' becasue it should be >0", function(){
+		 var result = validateAmount(fieldVal2,beforeComma,afterComma,amountRange,plus,minus,format);  
+		 expect(result).toBe("should be in '"+format+"' format");
+		});
+	});
+      	
+      </code></pre>
         <h3>Welcome to GitHub Pages.</h3>
 
 <p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
